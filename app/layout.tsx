@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "NagrikNetra AI",
+  authors: [
+    {
+      name: "Aishwary Jaiwal",
+    },
+  ],
+
   description:
     "AI-powered Smart City Environmental Monitoring & Pollution Reporting Platform",
   keywords: [
