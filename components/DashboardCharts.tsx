@@ -12,6 +12,8 @@ import {
 
 import { Pie, Bar } from "react-chartjs-2";
 
+import { PollutionReport } from "@/types/report";
+
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -21,11 +23,13 @@ ChartJS.register(
   BarElement
 );
 
+type Props = {
+  reports: PollutionReport[];
+};
+
 export default function DashboardCharts({
   reports,
-}: {
-  reports: any[];
-}) {
+}: Props) {
 
   const severityCount = {
     Low: 0,
@@ -38,9 +42,14 @@ export default function DashboardCharts({
 
   reports.forEach((report) => {
 
-    severityCount[
-      report.severity as keyof typeof severityCount
-    ]++;
+    if (
+      report.severity === "Low" ||
+      report.severity === "Medium" ||
+      report.severity === "High" ||
+      report.severity === "Critical"
+    ) {
+      severityCount[report.severity]++;
+    }
 
     pollutionTypes[report.pollutionType] =
       (pollutionTypes[report.pollutionType] || 0) + 1;
@@ -49,10 +58,10 @@ export default function DashboardCharts({
   return (
     <div className="grid lg:grid-cols-2 gap-8 mt-10">
 
-      <div className="bg-white rounded-xl shadow-lg p-6">
+      <div className="bg-white rounded-2xl shadow-lg border p-6">
 
-        <h2 className="text-xl font-bold mb-4">
-          Severity Distribution
+        <h2 className="text-xl font-bold text-green-700 mb-6">
+          📊 Severity Distribution
         </h2>
 
         <Pie
@@ -60,6 +69,7 @@ export default function DashboardCharts({
             labels: Object.keys(severityCount),
             datasets: [
               {
+                label: "Severity",
                 data: Object.values(severityCount),
                 backgroundColor: [
                   "#22c55e",
@@ -67,6 +77,7 @@ export default function DashboardCharts({
                   "#f97316",
                   "#dc2626",
                 ],
+                borderWidth: 2,
               },
             ],
           }}
@@ -74,10 +85,10 @@ export default function DashboardCharts({
 
       </div>
 
-      <div className="bg-white rounded-xl shadow-lg p-6">
+      <div className="bg-white rounded-2xl shadow-lg border p-6">
 
-        <h2 className="text-xl font-bold mb-4">
-          Pollution Types
+        <h2 className="text-xl font-bold text-blue-700 mb-6">
+          🌍 Pollution Types
         </h2>
 
         <Bar
@@ -88,8 +99,17 @@ export default function DashboardCharts({
                 label: "Reports",
                 data: Object.values(pollutionTypes),
                 backgroundColor: "#2563eb",
+                borderRadius: 8,
               },
             ],
+          }}
+          options={{
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
           }}
         />
 

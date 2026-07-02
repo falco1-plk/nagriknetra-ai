@@ -34,7 +34,6 @@ export default function Dashboard() {
   return () => unsubscribe();
 
 }, []);
-
   if (loading) {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -47,7 +46,7 @@ export default function Dashboard() {
 
  async function changeStatus(
   id: string,
-  status: string
+  status: PollutionReport["status"]
 ) {
   await updateReportStatus(id, status);
 }
@@ -157,9 +156,12 @@ export default function Dashboard() {
 
   <select
     value={report.status}
-    onChange={(e) =>
-      changeStatus(report.id, e.target.value)
-    }
+   onChange={(e) =>
+  changeStatus(
+    report.id,
+    e.target.value as PollutionReport["status"]
+  )
+}
     className="border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm"
   >
     <option value="Pending">Pending</option>
