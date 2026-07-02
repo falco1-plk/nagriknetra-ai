@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
 
-          © 2026 NagrikNetra AI • Smart India Hackathon
+          © 2026 Aishwary | NagrikNetra AI | Built with Next.js + Firebase + Gemini AI
 
         </div>
 
