@@ -13,7 +13,7 @@ export default function OfficerLogin() {
   function login(e: React.FormEvent) {
     e.preventDefault();
 
-    // Temporary Hackathon Login
+    // Demo Login
     if (
       email === "officer@nagriknetra.ai" &&
       password === "admin123"
@@ -26,86 +26,209 @@ export default function OfficerLogin() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 to-gray-100 flex items-center justify-center px-6">
+    <main
+      className="
+        min-h-screen
+        flex
+        items-center
+        justify-center
+        px-6
+        bg-gradient-to-br
+        from-green-50
+        via-white
+        to-slate-100
+        dark:from-slate-950
+        dark:via-slate-900
+        dark:to-slate-950
+        transition-colors
+        duration-300
+      "
+    >
+      <div
+        className="
+          w-full
+          max-w-md
+          rounded-3xl
+          border
+          border-gray-200
+          dark:border-slate-700
+          bg-white
+          dark:bg-slate-900
+          shadow-2xl
+          p-10
+        "
+      >
+        {/* Logo */}
 
-      <div className="bg-white rounded-3xl shadow-2xl p-10 w-full max-w-md">
+        <div className="flex justify-center mb-6">
+          <img
+            src="/logo.svg"
+            alt="NagrikNetra AI"
+            className="h-16 w-16"
+          />
+        </div>
 
-        <h1 className="text-3xl font-bold text-green-700 text-center">
+        {/* Heading */}
+
+        <h1 className="text-3xl font-bold text-center text-green-700 dark:text-green-400">
           Officer Login
         </h1>
 
-        <p className="text-gray-500 text-center mt-2">
-          Municipal Command Center
+        <p className="text-center text-gray-600 dark:text-gray-400 mt-3">
+          Municipal Environmental Command Center
         </p>
+
+        {/* Login Form */}
 
         <form
           onSubmit={login}
           className="mt-8 space-y-5"
         >
-
           <input
             type="email"
             placeholder="Officer Email"
             value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
-            className="w-full border rounded-xl p-3"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="
+              w-full
+              rounded-xl
+              border
+              border-gray-300
+              dark:border-slate-600
+              bg-white
+              dark:bg-slate-800
+              text-gray-900
+              dark:text-white
+              p-3
+              outline-none
+              focus:ring-2
+              focus:ring-green-500
+            "
           />
 
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
-            className="w-full border rounded-xl p-3"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="
+              w-full
+              rounded-xl
+              border
+              border-gray-300
+              dark:border-slate-600
+              bg-white
+              dark:bg-slate-800
+              text-gray-900
+              dark:text-white
+              p-3
+              outline-none
+              focus:ring-2
+              focus:ring-green-500
+            "
           />
 
           <button
-            className="w-full bg-green-600 text-white rounded-xl py-3 hover:bg-green-700 transition"
+            type="submit"
+            className="
+              w-full
+              rounded-xl
+              bg-green-600
+              hover:bg-green-700
+              text-white
+              py-3
+              font-semibold
+              shadow-lg
+              hover:shadow-xl
+              transition-all
+              duration-300
+            "
           >
-            Login
+            Login to Dashboard
           </button>
-
         </form>
 
+        {/* Back Button */}
+
         <div className="mt-8 text-center">
-
           <Link
-            href="/officer"
-            className="text-green-700"
+            href="/"
+            className="text-green-700 dark:text-green-400 hover:underline"
           >
-            ← Back
+            ← Back to Home
           </Link>
-
         </div>
 
-        <div className="mt-8 bg-gray-100 rounded-xl p-4 text-sm">
+        {/* Demo Credentials */}
 
-          <p className="font-semibold">
+        <div
+          className="
+            mt-8
+            rounded-2xl
+            border
+            border-gray-200
+            dark:border-slate-700
+            bg-gray-50
+            dark:bg-slate-800
+            p-5
+          "
+        >
+          <h3 className="font-bold text-gray-900 dark:text-white mb-4">
             Demo Credentials
-          </p>
+          </h3>
 
-          <p>Email:</p>
+          <div className="space-y-3 text-sm">
 
-          <code>
-            officer@nagriknetra.ai
-          </code>
+            <div>
+              <p className="text-gray-600 dark:text-gray-400">
+                Email
+              </p>
 
-          <p className="mt-2">
-            Password:
-          </p>
+              <code
+                className="
+                  block
+                  mt-1
+                  rounded-lg
+                  bg-white
+                  dark:bg-slate-900
+                  border
+                  border-gray-200
+                  dark:border-slate-700
+                  p-2
+                "
+              >
+                officer@nagriknetra.ai
+              </code>
+            </div>
 
-          <code>
-            admin123
-          </code>
+            <div>
+              <p className="text-gray-600 dark:text-gray-400">
+                Password
+              </p>
 
+              <code
+                className="
+                  block
+                  mt-1
+                  rounded-lg
+                  bg-white
+                  dark:bg-slate-900
+                  border
+                  border-gray-200
+                  dark:border-slate-700
+                  p-2
+                "
+              >
+                admin123
+              </code>
+            </div>
+
+          </div>
         </div>
 
       </div>
-
     </main>
   );
 }

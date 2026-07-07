@@ -29,8 +29,12 @@ export default function Footer() {
 
               <Link href="/report">Report</Link>
 
-              <Link href="/dashboard">Headquarters</Link>
-
+              <Link
+  href="/officer"
+  className="hover:text-green-600 transition-colors"
+>
+  Headquarters
+</Link>
               <Link href="/map">Live Map</Link>
 
               <Link href="/track">Track Report</Link>

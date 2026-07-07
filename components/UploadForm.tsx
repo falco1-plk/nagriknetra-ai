@@ -79,15 +79,30 @@ export default function UploadForm() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border p-8">
+    <div
+  className="
+    max-w-4xl
+    mx-auto
+    bg-white
+    dark:bg-slate-900
+    border
+    border-gray-200
+    dark:border-slate-700
+    rounded-3xl
+    shadow-xl
+    p-8
+    transition-all
+    duration-300
+  "
+>
 
       <div className="mb-8">
 
-        <h1 className="text-4xl font-bold text-green-700">
+        <h1 className="text-3xl md:text-4xl font-bold text-green-700 dark:text-green-400">
           📸 Report Pollution
         </h1>
 
-        <p className="text-gray-600 mt-3">
+        <p className="mt-3 text-gray-600 dark:text-gray-300 leading-7">
           Upload an image and let AI analyze the
           environmental pollution automatically.
         </p>
@@ -108,7 +123,18 @@ export default function UploadForm() {
 
             setPreview(URL.createObjectURL(file));
           }}
-          className="block w-full border rounded-xl p-3"
+          className="
+block
+w-full
+rounded-xl
+border
+border-gray-300
+dark:border-slate-600
+bg-white
+dark:bg-slate-800
+dark:text-white
+p-3
+"
         />
 
         {preview && (
@@ -145,7 +171,17 @@ export default function UploadForm() {
 
         {locationLoading ? (
 
-          <div className="bg-blue-50 border rounded-xl p-4">
+          <div
+  className="
+    bg-blue-50
+    dark:bg-blue-900/20
+    border
+    border-blue-200
+    dark:border-blue-700
+    rounded-xl
+    p-4
+  "
+>
 
             Detecting location...
 
@@ -153,15 +189,25 @@ export default function UploadForm() {
 
         ) : location ? (
 
-          <div className="bg-blue-50 border rounded-xl p-5">
+          <div
+  className="
+    bg-blue-50
+    dark:bg-blue-900/20
+    border
+    border-blue-200
+    dark:border-blue-700
+    rounded-xl
+    p-5
+  "
+>
 
-            <h3 className="font-bold text-lg">
+            <h3 className="font-bold text-lg text-blue-700 dark:text-blue-300">
 
               📍 Current Location
 
             </h3>
 
-            <p className="mt-2">
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
 
               <strong>Latitude:</strong>{" "}
 
@@ -169,7 +215,7 @@ export default function UploadForm() {
 
             </p>
 
-            <p>
+             <p className="text-gray-700 dark:text-gray-300">
 
               <strong>Longitude:</strong>{" "}
 
@@ -181,7 +227,19 @@ export default function UploadForm() {
 
         ) : (
 
-          <div className="bg-yellow-50 border rounded-xl p-5">
+          <div
+  className="
+    bg-yellow-50
+    dark:bg-yellow-900/20
+    border
+    border-yellow-300
+    dark:border-yellow-700
+    rounded-xl
+    p-5
+    text-gray-700
+    dark:text-gray-300
+  "
+>
 
             Unable to fetch location.
 
@@ -193,7 +251,17 @@ export default function UploadForm() {
 
           <div className="mt-8 grid gap-5">
 
-            <div className="rounded-xl border shadow p-6">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold text-xl">
 
@@ -208,7 +276,17 @@ export default function UploadForm() {
               </p>
 
             </div>
-                        <div className="rounded-xl border shadow p-6">
+                        <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold text-xl">
                 ⚠ Severity
@@ -231,7 +309,17 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl border shadow p-6">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold text-xl">
                 📊 Risk Score
@@ -256,7 +344,17 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl border shadow p-6">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold text-xl">
                 🎯 AI Confidence
@@ -270,7 +368,17 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl border shadow p-6">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold text-green-700">
                 👤 Citizen Advice
@@ -284,7 +392,17 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl border shadow p-6">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold text-blue-700">
                 🏛 Municipal Action
@@ -298,7 +416,17 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl border shadow p-6">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl">
 
               <h3 className="font-bold">
                 👮 Officer Recommendation
@@ -312,13 +440,23 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl border shadow p-6 bg-gray-50">
+            <div className="rounded-xl
+border
+border-gray-200
+dark:border-slate-700
+bg-white
+dark:bg-slate-800
+shadow-lg
+p-6
+transition-all
+duration-300
+hover:shadow-xl bg-gray-50 dark:bg-slate-800">
 
               <h3 className="font-bold">
                 🧠 AI Reasoning
               </h3>
 
-              <p className="mt-3 italic text-gray-700 leading-relaxed">
+              <p className="mt-3 italic text-gray-700 dark:text-gray-300 leading-relaxed">
 
                 {report.reasoning}
 
@@ -326,7 +464,15 @@ export default function UploadForm() {
 
             </div>
 
-            <div className="rounded-xl bg-green-50 border border-green-300 p-6">
+            <div className="
+rounded-xl
+bg-green-50
+dark:bg-green-900/20
+border
+border-green-300
+dark:border-green-700
+p-6
+">
 
               <h3 className="font-bold text-green-700 text-xl">
 

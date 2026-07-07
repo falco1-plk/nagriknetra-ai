@@ -6,7 +6,9 @@ type Props = {
   reports: PollutionReport[];
 };
 
-export default function OfficerDashboard({ reports }: Props) {
+export default function OfficerDashboard({
+  reports,
+}: Props) {
   const total = reports.length;
 
   const pending = reports.filter(
@@ -38,33 +40,50 @@ export default function OfficerDashboard({ reports }: Props) {
   return (
     <section className="space-y-8">
 
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+      {/* Header */}
+
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
 
         <div>
-          <h1 className="text-4xl font-bold text-green-700">
+
+          <h1 className="text-3xl md:text-5xl font-bold text-green-700 dark:text-green-400">
             🏛️ NagrikNetra AI
           </h1>
 
-          <p className="text-gray-600 mt-2">
+          <p className="mt-3 text-gray-600 dark:text-gray-300 text-lg">
             Municipal Environmental Command Center
           </p>
+
         </div>
 
-        <div className="bg-green-100 border border-green-300 rounded-xl px-5 py-3">
-
-          <p className="font-semibold text-green-700">
-            Officer Portal
+        <div
+          className="
+            rounded-2xl
+            border
+            border-green-300
+            dark:border-green-700
+            bg-green-100
+            dark:bg-green-900/20
+            px-6
+            py-4
+            shadow-md
+            w-fit
+          "
+        >
+          <p className="font-bold text-green-700 dark:text-green-300">
+            ● Officer Portal
           </p>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
             Live Monitoring Enabled
           </p>
-
         </div>
 
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+      {/* KPI Cards */}
+
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
 
         <Card
           title="Total Reports"
@@ -104,37 +123,63 @@ export default function OfficerDashboard({ reports }: Props) {
 
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg border p-6">
+      {/* Summary */}
 
-        <h2 className="text-xl font-bold mb-4">
+      <div
+        className="
+          rounded-2xl
+          border
+          border-gray-200
+          dark:border-slate-700
+          bg-white
+          dark:bg-slate-900
+          shadow-lg
+          p-8
+          transition-all
+          duration-300
+        "
+      >
+
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
           📈 Dashboard Summary
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-4 text-gray-700">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <p>
-            <strong>Total Reports:</strong> {total}
-          </p>
+          <SummaryItem
+            title="Total Reports"
+            value={total}
+          />
 
-          <p>
-            <strong>Critical Cases:</strong> {critical}
-          </p>
+          <SummaryItem
+            title="Critical Cases"
+            value={critical}
+          />
 
-          <p>
-            <strong>Pending Cases:</strong> {pending}
-          </p>
+          <SummaryItem
+            title="High Risk Cases"
+            value={high}
+          />
 
-          <p>
-            <strong>Assigned Cases:</strong> {assigned}
-          </p>
+          <SummaryItem
+            title="Pending Cases"
+            value={pending}
+          />
 
-          <p>
-            <strong>Inspection Started:</strong> {inspecting}
-          </p>
+          <SummaryItem
+            title="Assigned Cases"
+            value={assigned}
+          />
 
-          <p>
-            <strong>Resolved Cases:</strong> {resolved}
-          </p>
+          <SummaryItem
+            title="Inspection Started"
+            value={inspecting}
+          />
+
+          <SummaryItem
+            title="Resolved Cases"
+            value={resolved}
+          />
 
         </div>
 
@@ -143,6 +188,8 @@ export default function OfficerDashboard({ reports }: Props) {
     </section>
   );
 }
+
+/* ========================= */
 
 function Card({
   title,
@@ -155,15 +202,60 @@ function Card({
 }) {
   return (
     <div
-      className={`${color} rounded-2xl shadow-lg p-6 text-white transition hover:scale-105`}
+      className={`
+        ${color}
+        rounded-2xl
+        p-6
+        shadow-lg
+        text-white
+        hover:shadow-2xl
+        hover:-translate-y-1
+        transition-all
+        duration-300
+      `}
     >
-      <p className="text-sm opacity-90">
+      <p className="text-sm font-medium opacity-90">
         {title}
       </p>
 
-      <h2 className="text-4xl font-bold mt-3">
+      <h2 className="text-4xl font-bold mt-4">
         {value}
       </h2>
+    </div>
+  );
+}
+
+/* ========================= */
+
+function SummaryItem({
+  title,
+  value,
+}: {
+  title: string;
+  value: number;
+}) {
+  return (
+    <div
+      className="
+        rounded-xl
+        border
+        border-gray-200
+        dark:border-slate-700
+        bg-gray-50
+        dark:bg-slate-800
+        p-5
+        transition-all
+        duration-300
+        hover:shadow-md
+      "
+    >
+      <p className="text-sm text-gray-500 dark:text-gray-400">
+        {title}
+      </p>
+
+      <h3 className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
+        {value}
+      </h3>
     </div>
   );
 }
